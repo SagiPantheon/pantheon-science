@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Pantheon of Science – Brain</title>
   <style>
     body { margin: 0; background-color: #000; overflow: hidden; }
@@ -10,9 +10,9 @@
 </head>
 <body>
   <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.155.0/build/three.module.js';
-    import { GLTFLoader } from 'https://unpkg.com/three@0.155.0/examples/jsm/loaders/GLTFLoader.js';
-    import { OrbitControls } from 'https://unpkg.com/three@0.155.0/examples/jsm/controls/OrbitControls.js';
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+    import { GLTFLoader } from 'https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000000);
@@ -32,6 +32,8 @@
       const model = gltf.scene;
       model.scale.set(1.5, 1.5, 1.5);
       scene.add(model);
+    }, undefined, function (error) {
+      console.error('Ошибка загрузки GLB модели:', error);
     });
 
     const controls = new OrbitControls(camera, renderer.domElement);
